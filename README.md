@@ -20,7 +20,7 @@ is welcomed and needed.
 
 **Requirements:**
 
-- Rust >= 1.36
+- Rust >= 1.84
 - node >= 22
 
 All the parsing logic is specified in `grammar.js` at the root level. To see if the changes made to
@@ -52,7 +52,7 @@ be a lot times worse. Thank you for having such a good documentation and code.
 For neovim users, [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter)
 is needed, please make sure it is installed.
 
-A typical installation using [`vim-plug`]() would be like following
+A typical installation using [`vim-plug`](https://github.com/junegunn/vim-plug) would be like following
 
 ```lua
 call plug#begin()

@@ -21,7 +21,7 @@ is welcomed and needed.
 **Requirements:**
 
 - Rust >= 1.36
-- npm >= 6
+- node >= 22
 
 All the parsing logic is specified in `grammar.js` at the root level. To see if the changes made to
 it are working, run the tests and compare the results.
@@ -40,3 +40,37 @@ Many parts of the code were scavenged from these repositories:
 
 I'm grateful to the authors and contributors of those repositories, without them this parser would
 be a lot times worse. Thank you for having such a good documentation and code.
+
+## Neovim Usage
+
+For neovim users, [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter)
+is needed, please make sure it is installed.
+
+A typical installation using [`vim-plug`]() would be like following
+
+```lua
+call plug#begin()
+
+" ... Any other plugins
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+call plug#end()
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "prisma" }, -- You can add other languages too
+  sync_install = false,
+  auto_install = true,
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+```
+
+And don't forget to run the following in nvim
+
+```
+:TSInstall
+```

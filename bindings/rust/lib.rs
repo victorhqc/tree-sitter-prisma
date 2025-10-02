@@ -7,7 +7,7 @@
 //! let code = r#"
 //! "#;
 //! let mut parser = tree_sitter::Parser::new();
-//! let language = tree_sitter_prisma::LANGUAGE;
+//! let language = tree_sitter_prisma_io::LANGUAGE;
 //! parser
 //!     .set_language(&language.into())
 //!     .expect("Error loading Prisma parser");

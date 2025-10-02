@@ -1,0 +1,65 @@
+=====================
+Enum declaration
+=====================
+
+enum Role {
+  USER
+  ADMIN
+}
+
+---
+
+(program
+  (enum_declaration
+    (identifier)
+    (enum_block
+      (enumeral
+        (identifier)
+      )
+      (enumeral
+        (identifier)
+      )
+    )
+  )
+)
+
+=====================
+Enum with attributes
+=====================
+
+enum ExerciseType {
+  TWELVE_MINUTE_RUN_METERS       @map("12 MINUTE RUN (METERS)")
+  PULL_UP_ONE_MINUTE_REPS        @map("PULL-UP 1 MINUTE (REPS)")
+}
+
+---
+
+(program
+  (enum_declaration
+    (identifier)
+    (enum_block
+      (enumeral
+        (identifier)
+        (attribute
+          (call_expression
+            (identifier)
+              (arguments
+              (string)
+            )
+          )
+        )
+      )
+      (enumeral
+        (identifier)
+        (attribute
+          (call_expression
+            (identifier)
+              (arguments
+              (string)
+            )
+          )
+        )
+      )
+    )
+  )
+)

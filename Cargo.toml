@@ -2,20 +2,33 @@
 name = "tree-sitter-prisma-io"
 description = "prisma grammar for the tree-sitter parsing library"
 version = "1.5.0"
-keywords = ["incremental", "parsing", "prisma"]
-categories = ["parsing", "text-editors"]
+keywords = ["incremental", "parsing", "tree-sitter", "prisma"]
+categories = ["parser-implementations", "parsing", "text-editors"]
 repository = "https://github.com/victorhqc/tree-sitter-prisma.git"
-edition = "2018"
+authors = ["Victor Quiroz <git@victorhqc.com>"]
 license = "MIT"
+readme = "README.md"
+edition = "2021"
+autoexamples = false
 
 build = "bindings/rust/build.rs"
-include = ["bindings/rust/*", "grammar.js", "queries/*", "src/*"]
+include = [
+  "bindings/rust/*",
+  "grammar.js",
+  "queries/*",
+  "src/*",
+  "tree-sitter.json",
+  "LICENSE",
+]
 
 [lib]
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-tree-sitter = "~0.24"
+tree-sitter-language = "0.1"
 
 [build-dependencies]
-cc = "1.0"
+cc = "1.2"
+
+[dev-dependencies]
+tree-sitter = "0.25.3"

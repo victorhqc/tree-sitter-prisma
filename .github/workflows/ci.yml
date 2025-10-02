@@ -1,0 +1,50 @@
+name: Node CI
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - grammar.js
+      - src/**
+      - test/**
+      - bindings/**
+      - binding.gyp
+  pull_request:
+    paths:
+      - grammar.js
+      - src/**
+      - test/**
+      - bindings/**
+      - binding.gyp
+
+jobs:
+  test:
+    name: Test parser
+    runs-on: ${{matrix.os}}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Set up tree-sitter
+        uses: tree-sitter/setup-action/cli@v2
+      - name: Set up examples
+        run: |-
+          git config --global core.longpaths true
+          git clone https://github.com/npm/cli examples/cli --single-branch --depth=1 --filter=blob:none
+      - name: Run tests
+        uses: tree-sitter/parser-test-action@v3
+        with:
+          test-rust: true
+          test-node: true
+          test-python: true
+          test-go: true
+          test-swift: true
+      - name: Parse examples
+        uses: tree-sitter/parse-action@v4
+        with:
+          files: |
+            test/schema.prisma

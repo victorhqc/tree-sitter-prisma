@@ -8,6 +8,7 @@
     "grammar"
   ],
   "main": "bindings/node",
+  "types": "bindings/node",
   "homepage": "https://github.com/victorhqc/tree-sitter-prisma#readme",
   "repository": {
     "type": "git",
@@ -24,29 +25,27 @@
       "email": "richin13@gmail.com"
     }
   ],
-  "scripts": {
-    "prestart": "tree-sitter build --wasm",
-    "start": "tree-sitter playground",
-    "build": "tree-sitter generate && node-gyp build",
-    "generate": "tree-sitter generate",
-    "test": "npm run generate && tree-sitter test"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "tag": "latest"
-  },
   "dependencies": {
-    "nan": "^2.22.0"
+    "node-addon-api": "^8.3.1",
+    "node-gyp-build": "^4.8.4"
+  },
+  "devDependencies": {
+    "prebuildify": "^6.0.1",
+    "tree-sitter-cli": "^0.25.10"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.22.4"
+    "tree-sitter": "^0.25.0"
   },
   "peerDependenciesMeta": {
     "tree-sitter": {
       "optional": true
     }
   },
-  "devDependencies": {
-    "tree-sitter-cli": "^0.24.7"
+  "scripts": {
+    "install": "node-gyp-build",
+    "lint": "eslint grammar.js",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "node --test bindings/node/*_test.js"
   }
 }

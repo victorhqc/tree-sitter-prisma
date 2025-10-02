@@ -1,23 +1,29 @@
 // swift-tools-version:5.3
+
+import Foundation
 import PackageDescription
+
+var sources = ["src/parser.c"]
+if FileManager.default.fileExists(atPath: "src/scanner.c") {
+    sources.append("src/scanner.c")
+}
 
 let package = Package(
     name: "TreeSitterPrisma",
     products: [
-        .library(name: "TreeSitterPrisma", targets: ["TreeSitterPrisma"]),
+        .library(name: "TreeSitterPrisma", targets: ["TreeSitterPrisma"])
     ],
     dependencies: [
-        .package(url: "https://github.com/ChimeHQ/SwiftTreeSitter", from: "0.8.0"),
+        .package(
+            name: "SwiftTreeSitter", url: "https://github.com/tree-sitter/swift-tree-sitter",
+            from: "0.9.0")
     ],
     targets: [
         .target(
             name: "TreeSitterPrisma",
             dependencies: [],
             path: ".",
-            sources: [
-                "src/parser.c",
-                // NOTE: if your language has an external scanner, add it here.
-            ],
+            sources: sources,
             resources: [
                 .copy("queries")
             ],
@@ -31,7 +37,7 @@ let package = Package(
                 "TreeSitterPrisma",
             ],
             path: "bindings/swift/TreeSitterPrismaTests"
-        )
+        ),
     ],
     cLanguageStandard: .c11
 )

@@ -11,10 +11,12 @@ if FileManager.default.fileExists(atPath: "src/scanner.c") {
 let package = Package(
     name: "TreeSitterPrisma",
     products: [
-        .library(name: "TreeSitterPrisma", targets: ["TreeSitterPrisma"]),
+        .library(name: "TreeSitterPrisma", targets: ["TreeSitterPrisma"])
     ],
     dependencies: [
-        .package(url: "https://github.com/tree-sitter/swift-tree-sitter", from: "0.8.0"),
+        .package(
+            name: "SwiftTreeSitter", url: "https://github.com/tree-sitter/swift-tree-sitter",
+            from: "0.9.0")
     ],
     targets: [
         .target(
@@ -35,7 +37,7 @@ let package = Package(
                 "TreeSitterPrisma",
             ],
             path: "bindings/swift/TreeSitterPrismaTests"
-        )
+        ),
     ],
     cLanguageStandard: .c11
 )

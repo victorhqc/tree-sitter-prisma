@@ -21,7 +21,7 @@ is welcomed and needed.
 **Requirements:**
 
 - Rust >= 1.84
-- node >= 22
+- node >= 24
 
 All the parsing logic is specified in `grammar.js` at the root level. To see if the changes made to
 it are working, run the tests and compare the results.

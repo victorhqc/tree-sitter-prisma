@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-prisma
-        VERSION "1.5.0"
+        VERSION "1.6.0"
         DESCRIPTION "Prisma grammar for tree-sitter"
         HOMEPAGE_URL "https://github.com/victorhqc/tree-sitter-prisma"
         LANGUAGES C)

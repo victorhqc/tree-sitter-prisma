@@ -4,7 +4,7 @@ endif
 
 LANGUAGE_NAME := tree-sitter-prisma
 HOMEPAGE_URL := https://github.com/victorhqc/tree-sitter-prisma
-VERSION := 1.5.0
+VERSION := 1.6.0
 
 # repository
 SRC_DIR := src

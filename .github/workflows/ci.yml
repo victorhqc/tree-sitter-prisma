@@ -16,6 +16,7 @@ on:
       - test/**
       - bindings/**
       - binding.gyp
+      - package.json
 
 jobs:
   test:

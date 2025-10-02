@@ -18,12 +18,13 @@ on:
       - binding.gyp
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  test:
+    name: Test parser
+    runs-on: ${{matrix.os}}
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [24.x]
+        os: [ubuntu-latest]
 
     steps:
       - name: Checkout repository

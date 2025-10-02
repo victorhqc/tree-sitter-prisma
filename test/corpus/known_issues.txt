@@ -47,7 +47,6 @@ model User {
 }
 
 id   Int      @id @default(autoincrement())
-id2  String   @default(cuid())               @id
 
 ---
 
@@ -61,11 +60,5 @@ id2  String   @default(cuid())               @id
     (UNEXPECTED 'i')
     (UNEXPECTED 'e')
     (UNEXPECTED 'a')
-    (UNEXPECTED 'i')
-    (number)
-    (UNEXPECTED 'S')
-    (UNEXPECTED 'e')
-    (UNEXPECTED 'c')
-    (UNEXPECTED 'i')
   )
 )

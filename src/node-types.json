@@ -514,6 +514,7 @@
   {
     "type": "comment",
     "named": true,
+    "extra": true,
     "fields": {}
   },
   {
@@ -572,7 +573,21 @@
   {
     "type": "enumeral",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "generator_declaration",
@@ -592,11 +607,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "identifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "member_expression",
@@ -657,11 +667,6 @@
     }
   },
   {
-    "type": "property_identifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "statement_block",
     "named": true,
     "fields": {},
@@ -714,11 +719,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "type_declaration_type",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "type_expression",
@@ -778,11 +778,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "variable",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "view_declaration",
@@ -929,7 +924,8 @@
   },
   {
     "type": "developer_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "enum",
@@ -942,6 +938,10 @@
   {
     "type": "generator",
     "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
   },
   {
     "type": "maybe",
@@ -960,6 +960,10 @@
     "named": true
   },
   {
+    "type": "property_identifier",
+    "named": true
+  },
+  {
     "type": "string",
     "named": true
   },
@@ -970,6 +974,14 @@
   {
     "type": "type",
     "named": false
+  },
+  {
+    "type": "type_declaration_type",
+    "named": true
+  },
+  {
+    "type": "variable",
+    "named": true
   },
   {
     "type": "view",

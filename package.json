@@ -25,36 +25,13 @@
       "email": "richin13@gmail.com"
     }
   ],
-  "scripts": {
-    "install": "node-gyp-build",
-    "prestart": "tree-sitter build --wasm",
-    "start": "tree-sitter playground",
-    "test": "npm run generate && npm run test:grammar && npm run test:bindings",
-    "generate": "tree-sitter generate",
-    "test:grammar": "tree-sitter test",
-    "test:bindings": "node --test bindings/node/*_test.js"
-  },
-  "files": [
-    "grammar.js",
-    "tree-sitter.json",
-    "binding.gyp",
-    "prebuilds/**",
-    "bindings/node/*",
-    "queries/*",
-    "src/**",
-    "*.wasm"
-  ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "tag": "latest"
-  },
   "dependencies": {
-    "node-addon-api": "^8.2.1",
-    "node-gyp-build": "^4.8.2"
+    "node-addon-api": "^8.3.1",
+    "node-gyp-build": "^4.8.4"
   },
   "devDependencies": {
     "prebuildify": "^6.0.1",
-    "tree-sitter-cli": "^0.25.10"
+    "tree-sitter-cli": "^0.25.8"
   },
   "peerDependencies": {
     "tree-sitter": "^0.25.0"
@@ -63,5 +40,12 @@
     "tree-sitter": {
       "optional": true
     }
+  },
+  "scripts": {
+    "install": "node-gyp-build",
+    "lint": "eslint grammar.js",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "node --test bindings/node/*_test.js"
   }
 }

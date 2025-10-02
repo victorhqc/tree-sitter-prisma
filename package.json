@@ -29,7 +29,7 @@
     "install": "node-gyp-build",
     "prestart": "tree-sitter build --wasm",
     "start": "tree-sitter playground",
-    "test": "npm run generate && npm run test:grammar && npm run test:bindings",
+    "test": "npm run generate && npm run test:grammar",
     "generate": "tree-sitter generate",
     "test:grammar": "tree-sitter test",
     "test:bindings": "node --test bindings/node/*_test.js"

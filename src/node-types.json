@@ -411,6 +411,12 @@
     }
   },
   {
+    "type": "block_comment",
+    "named": true,
+    "extra": true,
+    "fields": {}
+  },
+  {
     "type": "call_expression",
     "named": true,
     "fields": {},

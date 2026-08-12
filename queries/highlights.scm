@@ -8,6 +8,7 @@
 
 (comment) @comment
 (developer_comment) @comment
+(block_comment) @comment
 
 (number) @number
 (string) @string

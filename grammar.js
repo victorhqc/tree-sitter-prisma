@@ -20,6 +20,7 @@ module.exports = grammar({
   extras: $ => [
     $.comment,
     $.developer_comment,
+    $.block_comment,
     /[\s\uFEFF\u2060\u200B\u00A0]/
   ],
 
@@ -110,6 +111,10 @@ module.exports = grammar({
 
     comment: $ => prec(PREC.COMMENT, token(
       seq('///', /.*/),
+    )),
+
+    block_comment: $ => prec(PREC.COMMENT, token(
+      seq('/*', /[^*]*\*+([^/*][^*]*\*+)*/, '/'),
     )),
 
     statement_block: $ => seq(

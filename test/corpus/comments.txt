@@ -14,6 +14,64 @@ Comment block
   (comment)
 )
 
+==================
+Block comment
+==================
+
+/* This comment shows up in the AST, just like /// */
+model User {
+  /* This one works too (attached before the column) */
+  id Int /* This one too */ @id
+}
+
+---
+
+(program
+  (block_comment)
+  (model_declaration
+    (identifier)
+    (statement_block
+      (block_comment)
+      (column_declaration
+        (identifier)
+        (column_type
+          (identifier))
+        (block_comment)
+        (attribute
+          (identifier)))
+    )
+  )
+)
+
+==================
+Multiline block comment
+==================
+
+/*
+ * This is a
+ * multiline block comment
+ */
+model Post {
+  id Int @id
+}
+
+---
+
+(program
+  (block_comment)
+  (model_declaration
+    (identifier)
+    (statement_block
+      (column_declaration
+        (identifier)
+        (column_type
+          (identifier))
+        (attribute
+          (identifier)))
+    )
+  )
+)
+
 =====================
 Comment in datasource
 =====================

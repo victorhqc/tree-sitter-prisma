@@ -14,6 +14,32 @@ Comment block
   (comment)
 )
 
+==============
+Empty comment
+==============
+
+//
+model User {
+  id Int @id
+}
+
+---
+
+(program
+  (developer_comment)
+  (model_declaration
+    (identifier)
+    (statement_block
+      (column_declaration
+        (identifier)
+        (column_type
+          (identifier))
+        (attribute
+          (identifier)))
+    )
+  )
+)
+
 =====================
 Comment in datasource
 =====================
